@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // Promise Task 
+    // 1
+        // const p1 = new Promise(function (resolve, reject) {
+        // setTimeout(function () {
+        //     resolve("Welcome to Js Promise");
+        // }, 2000);
+        // });
+
+        // p1.then(function (msg) {
+        // console.log(msg);
+        // });
+
+    // 2
+        // const p2 = new Promise(function (resolve, reject) {
+        // setTimeout(function () {
+        //     reject("Invalid Data");
+        // }, 3000);
+        // });
+
+        // p2.catch(function (err) {
+        // console.log(err);
+        // });
+
+    // 3
+        // function checkNumber(num) {
+        // return new Promise(function (resolve, reject) {
+        //     if (num % 2 !== 0) {
+        //     resolve(num + " is odd");
+        //     } else {
+        //     reject(num + " is even");
+        //     }
+        // });
+        // }
+        // checkNumber(7)
+        // .then(function (res) { console.log(res); })
+        // checkNumber(4)
+        // .catch(function (err) { console.log(err); });
+
+    // 4
+        // function checkAge(age) {
+        // return new Promise(function (resolve, reject) {
+        //     if (age >= 18) {
+        //     resolve("Eligible for Employement");
+        //     } else {
+        //     reject("Not eligible for Employement");
+        //     }
+        // });
+        // }
+        // checkAge(20)
+        // .then(function (res) { console.log(res); })
+        
+        // checkAge(15)
+        // .catch(function (err) { console.log(err); });
+
+    // 5
+    // function Sum(a, b) {
+    // return new Promise(function (resolve, reject) {
+    //     if (b < 0) {
+    //     reject("b is a negative value");
+    //     } else {
+    //     resolve(a + b);
+    //     }
+    // });
+    // }
+
+    // Sum(5,3)
+    // .then(function (res) { console.log("Sum is", res); })
+
+    // Sum(5,-3)
+    // .catch(function (err) { console.log(err); });
+    
+    // 6
+    // console.log("Order placed");
+    // const orderFood = new Promise(function (resolve, reject) {
+    // setTimeout(function () {
+    //     resolve("Food is ready");
+    // }, 5000);
+    // });
+
+    // orderFood.then(function (msg) {
+    // console.log(msg);
+    // });
+
+    // 7
+    // function checkString(str) {
+    // return new Promise(function (resolve, reject) {
+    //     if (str.length > 0) {
+    //     resolve("String has characters: " + str);
+    //     } else {
+    //     reject("String is empty");
+    //     }
+    // });
+    // }
+    // checkString("hello")
+    // .then(function (res) { console.log(res); })
+
+    // checkString("")
+    // .catch(function (err) { console.log(err); });
+
+    // 8
+    // function findEven(num) {
+    // return new Promise(function (resolve, reject) {
+    //     if (num % 2 === 0) {
+    //     resolve(num + " is even");
+    //     } else {
+    //     reject(num + " is odd");
+    //     }
+    // });
+    // }
+    // findEven(10)
+    // .then(function (res) { console.log(res); })
+
+    // findEven(7)
+    // .catch(function (err) { console.log(err); });
+
+    // 9
+    // const a = new Promise(function (resolve) {
+    // setTimeout(function () { resolve("1"); }, 1000);
+    // });
+
+    // const b = new Promise(function (resolve) {
+    // setTimeout(function () { resolve("2"); }, 2000);
+    // });
+
+    // const c = new Promise(function (resolve) {
+    // setTimeout(function () { resolve("3"); }, 3000);
+    // });
+
+    // Promise.all([a, b, c]).then(function (results) {
+    // console.log(results);
+    // });
+
+    // 10
+    // const r1 = new Promise(function (resolve) {
+    // setTimeout(function () { resolve("Arun kumar"); }, 3000);
+    // });
+
+    // Promise.race([r1])
+    // .then(function (res) { console.log(res); })
+
+    // Task1
+
+    // async function getMessage() {
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // return "Hello, This is The Message";
+    // }
+
+    // getMessage().then(function (result) {
+    // console.log(result);
+    // });
+
+    // Task2
+
+    // async function getUser() {
+    // await new Promise(resolve => setTimeout(resolve, 1500));
+    // return {
+    //   id: 1,
+    //   name: "Rahul",
+    //   email: "rahul@gmail.com"
+    // };
+    // }
+    // async function user() {
+    //     const user = await getUser();
+    //     console.log("User Name: " + user.name);
+    //     console.log("Email: " + user.email);
+    // }
+    // user();
+
+    // Task3
+
+    async function loginUser(isLoggedIn) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    if (isLoggedIn) {
+      return "Login successful";
+    } else {
+      throw new Error("Invalid User");
+    }
+    }
+    async function checkLogin(value) {
+        try {
+        const result = await loginUser(value);
+        console.log(result);
+        } catch (error) {
+        console.log(error.message);
+        }
+    }
+    checkLogin(true);
+    checkLogin(false);
+    </script>
+</head>
+<body>
+    <h1>Welcome To Page</h1>  
+</body>
+</html>
